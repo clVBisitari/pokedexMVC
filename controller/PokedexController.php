@@ -1,7 +1,5 @@
 <?php
 
-namespace controller;
-
 class PokedexController
 {
     private $model;
@@ -15,7 +13,7 @@ class PokedexController
 
     public function get()
     {
-//        $pokemons = $this->model->getPokemons();
-        $this->presenter->render("view/pokedexView.mustache");
+        $pokemons = $this->model->getPokemons();
+        $this->presenter->render("view/pokedexView.mustache", ["pokemons" => $pokemons]);
     }
 }

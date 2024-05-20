@@ -1,26 +1,36 @@
-<!--<div class='w3-container'>";-->
-<!--    <div class='row'>";-->
-<!--        <div class='col-md-4 col-sm-6 mb-4'>-->
-<!--            <div class='w3-card-4 w3-center w3-blue w3-round-xxlarge'>-->
+<div class="mt-4 mb-4 container text-center">
+<div class='w3-container'>
+    <div class='row'>
+                {{#pokemons}}
+                    <div class='col-md-4 col-sm-6 mb-4'>
+                    <div class='w3-card-4 w3-center w3-blue w3-round-xxlarge'>
+                        <img src="{{image}}" style='width:90%' class='w3-image w3-round-xlarge w3-margin-top'>
+                        <h2 class='w3-wide'>#{{number}}</h2>
+                        <h3>{{name}}</h3>
 
-<!--                {{#pokemons}}-->
-<!--                    <img src= "{{image}}" style="width:90%" class="w3-image w3-round-xlarge w3-margin-top">-->
-<!--                    <h2 class='w3-wide'>#{{number}}</h2>-->
-<!--                    <h3>{{name}}</h3>-->
+                        <img src="{{type1_image}}" alt="{{type1_name}}" style="width:30px; height:30px;" class="w3-round w3-margin-right" />
 
-<!--                    <img src="{{type1_image}}" alt="{{type1_name}}" style="width:30px; height:30px;" class="w3-round w3-margin-right" />-->
+                        {{#type2_image}}
+                        <img src="{{type2_image}}" alt="{{type2_name}}" style="width:30px; height:30px;" class= "w3-round" />
+                        {{/type2_image}}
 
+                        <a href="detail.php?id={{id}}" class="btn btn-sm btn-primary m-1 mb-3">Detalles</a>
 
-<!--                    <img src="{{type2_image}}" alt="{{type2_name}}" style="width:30px; height:30px;" class= "w3-round" />-->
+                        <!--if ($username == "admin") {
+                        <a href="edit_or_create_pokemon.php?id=' . $row['id'] . '" class="btn btn-primary m-1 mb-2">Editar Pokemon</a>
+                        <a href="delete.php?id=' . $row['id'] . '" class="btn btn-danger m-1 mb-2">Eliminar Pokemon</a>
+                        }
 
-<!--                    <a href="detail.php?id=' . $row['id'] . '" class="btn btn-sm btn-primary m-1 mb-3">Detalles</a>-->
+                        if (isset($userLogin) && $userLogin) {
+                        <div class="options">
+                            <a href="edit_or_create_pokemon.php?id=' . $row['id'] . '" class="btn btn-sm btn-success m-1 mb-2">Editar</a>
+                            <a href="delete.php?id=' . $row['id'] . '" class="btn btn-sm btn-danger m-1 mb-2">Eliminar</a>
+                            </div>
+                        }-->
 
-<!--                {{/pokemons}}-->
-<!--            </div>-->
-<!--        </div>-->
-<!--    </div>-->
-<!--</div>-->
-
-<div>
-    <h1>HOLA MUNDO</h1>
+                        </div>
+                    </div>
+                {{/pokemons}}
+    </div>
+</div>
 </div>

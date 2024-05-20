@@ -1,8 +1,17 @@
 <?php
 
-use controller\PokedexController;
 use model\PokemonModel;
 
+include_once ("controller/PokedexController.php");
+include_once ("model/PokemonModel.php");
+
+include_once ("helper/Database.php");
+include_once ("helper/Router.php");
+
+include_once ("helper/Presenter.php");
+include_once ("helper/MustachePresenter.php");
+
+include_once('vendor/mustache/src/Mustache/Autoloader.php');
 class Configuration
 {
 
