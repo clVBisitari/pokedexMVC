@@ -1,13 +1,16 @@
 <?php
 
+use model\PokemonModel;
+
 class SearchPokemonController
 {
 
     /**
-     * @param ToursModel $getToursModel
+     * @param PokemonModel $pokemonModel
      * @param MustachePresenter $getPresenter
      */
-    public function __construct(\ToursModel $getToursModel, \MustachePresenter $getPresenter)
+    public function __construct(PokemonModel $pokemonModel, MustachePresenter $getPresenter)
     {
+
     }
 }

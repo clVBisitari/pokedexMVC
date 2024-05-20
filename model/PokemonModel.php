@@ -12,11 +12,22 @@ class PokemonModel
     }
 
     public function getPokemons(){
-        return $this->database->query("SELECT * FROM POKEDEX");
+        $query = "SELECT pokemon.*,  
+        tipo1.name AS type1_name, 
+        tipo1.image AS type1_image, 
+        tipo2.name AS type2_name, 
+        tipo2.image AS type2_image
+        FROM pokemon
+        INNER JOIN type as tipo1
+        ON pokemon.idType1 = tipo1.id
+        LEFT JOIN type as tipo2 ON pokemon.idType2 = tipo2.id";
+
+
+        return $this->database->query($query);
     }
 
     public function addTour($nombre)
     {
-        $this->database->execute("INSERT INTO `pokedex`(`nombre`, `fecha`, `precio`) VALUES ('" . $nombre ."','2024-1-1',10)");
+        $this->database->execute("INSERT INTO `pokemon`(`nombre`, `fecha`, `precio`) VALUES ('" . $nombre ."','2024-1-1',10)");
     }
 }

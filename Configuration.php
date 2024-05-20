@@ -9,13 +9,13 @@ class Configuration
     // CONTROLLERS
     public static function getPokedexController()
     {
-        return new PokedexController(self::getPresenter());
+        return new PokedexController(self:: getPokemonModel(), self::getPresenter());
     }
 
 
     public static function getSearchPokemonController()
     {
-        return new SearchPokemonController(self::getToursModel(), self::getPresenter());
+        return new SearchPokemonController(self::getPokemonModel(), self::getPresenter());
     }
 
     // MODELS

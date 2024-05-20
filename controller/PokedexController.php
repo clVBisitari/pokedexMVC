@@ -4,15 +4,18 @@ namespace controller;
 
 class PokedexController
 {
+    private $model;
     private $presenter;
 
-    public function __construct($presenter)
+    public function __construct($model, $presenter)
     {
+        $this->model = $model;
         $this->presenter = $presenter;
     }
 
     public function get()
     {
-        $this->presenter->render("view/labandaView.mustache");
+//        $pokemons = $this->model->getPokemons();
+        $this->presenter->render("view/pokedexView.mustache");
     }
 }

@@ -1,24 +1,57 @@
-<!DOCTYPE html>
 <html lang="en">
-<title>W3.CSS Template</title>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <title>Pokedex</title>
+</head>
 
-<body>
+<body class="mb-0 bg-white text-black" >
+<header class="container-fluid bg-primary bg-gradient text-white ">
+    <div class="row">
+        <div class=" bg-primary bg-gradient text white col text-left">
+            <h1>LA POKEDEX</h1>
+            <p>Bienvenido a la pokedex online!</p>
+            <a href="index.php"><img class="mb-1" src="public/images/pokedex.png" alt="pokedex" width="72" height="57"></a>
+        </div>
+        <div class=" bg-primary bg-gradient text white col">
 
-<!-- Navbar -->
-<div class="w3-top">
-    <div class="w3-bar w3-black w3-card">
-        <a class="w3-bar-item w3-button w3-padding-large w3-hide-medium w3-hide-large w3-right" href="javascript:void(0)" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
-        <a href="/" class="w3-bar-item w3-button w3-padding-large">La banda</a>
-        <a href="/songs/get" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Canciones</a>
-        <a href="/tours/get" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Presentaciones</a>
+        </div>
+        <div class=" bg-primary bg-gradient text white col text-right">
+
+            <?php
+            if(!$estaLogueado){
+
+            ?>
+            <div class="d-flex flex-row">
+                <form class="d-flex flex-row" name="sesion" method="post" action="./index.php">
+                    <div class="p-2 mt-4">
+                        <input type="text" name="user" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+                    </div>
+                    <div class="p-2 mt-4">
+                        <input type="password" name="pass" class="form-control" id="inputPassword" placeholder="Password">
+                    </div>
+                    <button type="submit" class="p-2 mt-4 btn btn-outline-light" name="submit">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+                            <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
+                            <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"/>
+                        </svg>
+                        Iniciar sesión</button>
+                </form>
+                <?php
+                }else{
+
+                    ?>
+                <p>Bienvenido, <?php echo $_SESSION["username"]; ?> </p>
+                <form method="post" action="logout.php">
+                    <button type="submit" class="btn btn-danger">Cerrar Sesión</button>
+                </form>
+                <?php
+                }
+                ?>
+            </div>
+
+        </div>
     </div>
-</div>
-
-
-<!-- Page content -->
-<div class="w3-content" style="max-width:2000px;margin-top:46px">
+</header>
