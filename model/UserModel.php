@@ -19,4 +19,8 @@ class UserModel
     {
         $this->database->execute("INSERT INTO `users`(`userName`, `password`) VALUES ('" . $nombre ."','2024-1-1',10)");
     }
+
+    public function getUserForNameAndPassword($username, $password){
+        return $this->database->query("SELECT * FROM user WHERE username ='$username' && password = '$password'");
+}
 }

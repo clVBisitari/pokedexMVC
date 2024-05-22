@@ -15,5 +15,7 @@ class PokedexController
     {
         $pokemons = $this->model->getPokemons();
         $this->presenter->render("view/pokedexView.mustache", ["pokemons" => $pokemons]);
+
     }
+
 }

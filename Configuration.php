@@ -1,9 +1,13 @@
 <?php
 
 use model\PokemonModel;
+use model\UserModel;
 
 include_once ("controller/PokedexController.php");
+include_once ("controller/UserController.php");
+
 include_once ("model/PokemonModel.php");
+include_once ("model/UserModel.php");
 
 include_once ("helper/Database.php");
 include_once ("helper/Router.php");
@@ -20,6 +24,10 @@ class Configuration
     {
         return new PokedexController(self:: getPokemonModel(), self::getPresenter());
     }
+    public static function getUserController(){
+
+        return new UserController(self:: getUserModel(), self::getPresenter());
+    }
 
 
     public static function getSearchPokemonController()
@@ -31,6 +39,11 @@ class Configuration
     private static function getPokemonModel()
     {
         return new PokemonModel(self::getDatabase());
+    }
+
+    private static function getUserModel(){
+
+        return new UserModel(self::getDatabase());
     }
 
 
