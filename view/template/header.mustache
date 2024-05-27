@@ -21,10 +21,16 @@
         <div class=" bg-primary bg-gradient text white col text-right">
 
 
+            {{#loggedIn}}
+                <p>Bienvenido, {{username}} </p>
+                <form method="get" action="index.php">
+                    <button type="submit" class="btn btn-danger">Cerrar Sesión</button>
+                </form>
+            {{/loggedIn}}
                {{^loggedIn}}
                    {{errorUserOrPass}}
                <div class="d-flex flex-row">
-                <form class="d-flex flex-row" name="sesion" method="post" action="/controller/UserController.php">
+                <form class="d-flex flex-row" name="sesion" method="post" action="/pokedexMVC/index.php">
                     <div class="p-2 mt-4">
                         <input type="text" name="user" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
                     </div>
@@ -39,14 +45,7 @@
                         Iniciar sesión</button>
                 </form>
                 {{/loggedIn}}
-
-                {{#loggedIn}}
-                <p>Bienvenido, {{username}} </p>
-                <form method="post" action="logout.php">
-                    <button type="submit" class="btn btn-danger">Cerrar Sesión</button>
-                </form>
             </div>
-                {{/loggedIn}}
 
         </div>
     </div>

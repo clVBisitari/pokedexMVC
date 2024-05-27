@@ -1,5 +1,18 @@
 <div class="mt-4 mb-4 container text-center">
 <div class='w3-container'>
+    <div class="w3-container w3-margin w3-center">
+        <form class="w3-row search-form" method="post" action ="/pokedexMVC/index.php">
+            <div class="w3-col-md-9 search-input">
+                <input type="text" name="search_value" id="search_value" placeholder="Busca a tu pokemon favorito!" class="w3-input">
+            </div>
+            <div class="w3-col-md-3">
+                <input type="submit" name="search_button" value="Buscar" class="btn btn-sm btn-primary">
+            </div>
+        </form>
+        {{#username}}
+        <a href="edit_or_create_pokemon.php" class="btn btn-success m-1 mb-2">Crear Pokemon</a>
+        {{/username}}
+    </div>
     <div class='row'>
                 {{#pokemons}}
                     <div class='col-md-4 col-sm-6 mb-4'>
@@ -15,19 +28,12 @@
                         {{/type2_image}}
 
                         <a href="detail.php?id={{id}}" class="btn btn-sm btn-primary m-1 mb-3">Detalles</a>
-
-                        <!--if ($username == "admin") {
-                        <a href="edit_or_create_pokemon.php?id=' . $row['id'] . '" class="btn btn-primary m-1 mb-2">Editar Pokemon</a>
-                        <a href="delete.php?id=' . $row['id'] . '" class="btn btn-danger m-1 mb-2">Eliminar Pokemon</a>
-                        }
-
-                        if (isset($userLogin) && $userLogin) {
-                        <div class="options">
-                            <a href="edit_or_create_pokemon.php?id=' . $row['id'] . '" class="btn btn-sm btn-success m-1 mb-2">Editar</a>
-                            <a href="delete.php?id=' . $row['id'] . '" class="btn btn-sm btn-danger m-1 mb-2">Eliminar</a>
+                        {{#loggedIn}}
+                            <div class="options">
+                                <a href="edit_or_create_pokemon.php?id=' . $row['id'] . '" class="btn btn-sm btn-success m-1 mb-2">Editar</a>
+                                <a href="delete.php?id=' . $row['id'] . '" class="btn btn-sm btn-danger m-1 mb-2">Eliminar</a>
                             </div>
-                        }-->
-
+                        {{/loggedIn}}
                         </div>
                     </div>
                 {{/pokemons}}
