@@ -27,11 +27,11 @@
                         <img src="public/{{type2_image}}" alt="{{type2_name}}" style="width:30px; height:30px;" class= "w3-round" />
                         {{/type2_image}}
 
-                        <a href="detail.php?id={{id}}" class="btn btn-sm btn-primary m-1 mb-3">Detalles</a>
+                            <a href="index.php?controller=pokedexController&action=detail&id={{id}}&loggedIn={{loggedIn}}" class="btn btn-sm btn-primary m-1 mb-3">Detalles</a>
                         {{#loggedIn}}
                             <div class="options">
-                                <a href="edit_or_create_pokemon.php?id=' . $row['id'] . '" class="btn btn-sm btn-success m-1 mb-2">Editar</a>
-                                <a href="delete.php?id=' . $row['id'] . '" class="btn btn-sm btn-danger m-1 mb-2">Eliminar</a>
+                                <a href="edit_or_create_pokemon.php?id={{id}}" class="btn btn-sm btn-success m-1 mb-2">Editar</a>
+                                <a href="delete.php?id={{id}}" class="btn btn-sm btn-danger m-1 mb-2">Eliminar</a>
                             </div>
                         {{/loggedIn}}
                         </div>

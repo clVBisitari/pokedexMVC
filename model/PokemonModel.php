@@ -26,8 +26,8 @@ class PokemonModel
         return $this->database->query($query);
     }
 
-    public function addTour($nombre)
+    public function detailPokemon($id)
     {
-        $this->database->execute("INSERT INTO `pokemon`(`nombre`, `fecha`, `precio`) VALUES ('" . $nombre ."','2024-1-1',10)");
+        return $this->database->query("SELECT * FROM pokemon WHERE id = $id ");
     }
 }
