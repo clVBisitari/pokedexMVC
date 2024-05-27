@@ -23,21 +23,21 @@
 
             {{#loggedIn}}
                 <p>Bienvenido, {{username}} </p>
-                <form method="get" action="index.php">
-                    <button type="submit" class="btn btn-danger">Cerrar Sesión</button>
+                <form method="get" action="index.php?controller=pokedexController&action=get&username={{username}}">
+                    <button type="submit" name = "cerrarSesion" class="btn btn-danger">Cerrar Sesión</button>
                 </form>
             {{/loggedIn}}
                {{^loggedIn}}
                    {{errorUserOrPass}}
-               <div class="d-flex flex-row">
-                <form class="d-flex flex-row" name="sesion" method="post" action="/pokedexMVC/index.php">
+                <div class="d-flex flex-row">
+                    <form class="d-flex flex-row" name="sesion" method="post" action="/pokedexMVC/index.php?controller=pokedexController&action=post">
                     <div class="p-2 mt-4">
                         <input type="text" name="user" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
                     </div>
                     <div class="p-2 mt-4">
                         <input type="password" name="pass" class="form-control" id="inputPassword" placeholder="Password">
                     </div>
-                    <button type="submit" class="p-2 mt-4 btn btn-outline-light" name="submit">
+                    <button type="submit" class="p-2 mt-4 btn btn-outline-light" name="iniciarSesion">
                         <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
                             <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
                             <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"/>
