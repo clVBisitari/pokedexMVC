@@ -22,7 +22,7 @@ class Configuration
     // CONTROLLERS
     public static function getPokedexController()
     {
-        return new PokedexController(self:: getPokemonModel(), self::getPresenter());
+        return new PokedexController(self:: getPokemonModel(), self::getUserModel(), self::getPresenter());
     }
     public static function getUserController(){
 
